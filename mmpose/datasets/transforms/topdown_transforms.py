@@ -114,8 +114,10 @@ class TopdownAffine(BaseTransform):
                 for img in results['img']
             ]
         else:
-            results['img'] = cv2.warpAffine(
-                results['img'], warp_mat, warp_size, flags=cv2.INTER_LINEAR)
+            # results['img'] = cv2.warpAffine(
+            #     results['img'], warp_mat, warp_size, flags=cv2.INTER_LINEAR)
+            results['img'] = cv2.resize(results['img'], warp_size)
+
 
         if results.get('keypoints', None) is not None:
             if results.get('transformed_keypoints', None) is not None:

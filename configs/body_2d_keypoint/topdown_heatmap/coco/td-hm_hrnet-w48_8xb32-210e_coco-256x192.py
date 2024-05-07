@@ -90,7 +90,7 @@ model = dict(
 # base dataset settings
 dataset_type = 'CocoDataset'
 data_mode = 'topdown'
-data_root = 'data/coco/'
+data_root = '/mnt/NAS-TVS872XT/dataset/COCO/'
 
 # pipelines
 train_pipeline = [
@@ -135,8 +135,10 @@ val_dataloader = dict(
         data_root=data_root,
         data_mode=data_mode,
         ann_file='annotations/person_keypoints_val2017.json',
-        bbox_file='data/coco/person_detection_results/'
-        'COCO_val2017_detections_AP_H_56_person.json',
+        bbox_file='tests/data/coco/test_coco_det_AP_H_56.json'
+        # 'data/coco/person_detection_results/'
+        # 'COCO_val2017_detections_AP_H_56_person.json',
+        ,
         data_prefix=dict(img='val2017/'),
         test_mode=True,
         pipeline=val_pipeline,
