@@ -2,6 +2,9 @@
 import argparse
 import os
 import os.path as osp
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from mmengine.config import Config, DictAction
 from mmengine.runner import Runner
@@ -65,6 +68,12 @@ def parse_args():
         choices=['none', 'pytorch', 'slurm', 'mpi'],
         default='none',
         help='job launcher')
+    parser.add_argument(
+        '--probability',
+        type=float,
+        default='0.0',
+        help='Applicable probability')
+
     # When using PyTorch version >= 2.0.0, the `torch.distributed.launch`
     # will pass the `--local-rank` parameter to `tools/train.py` instead
     # of `--local_rank`.
