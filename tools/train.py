@@ -145,6 +145,26 @@ def merge_args(cfg, args):
 
     return cfg
 
+# def log_comet_hook(
+#     batch_idx,
+#     data_batch,
+#     outputs):
+
+#     # do something
+#     pass
+
+# class MyCometLoggerHook():
+#     def __init__(self, comet_logger):
+#         self.comet_logger = comet_logger
+
+#     def __call__(
+#         self
+#         batch_idx,
+#         data_batch,
+#         outputs):
+#         # do something with self.comet_logger
+#         pass
+
 
 def main():
     args = parse_args()
@@ -162,6 +182,12 @@ def main():
 
     # build the runner from config
     runner = Runner.from_cfg(cfg)
+
+    # log_comet_hoook = MyCometLoggerHood(comet_logger)
+    # runner.register_hook(
+    #     'after_val_iter',
+    #     log_comet_hoook
+    #     )
 
     # start training
     runner.train()
