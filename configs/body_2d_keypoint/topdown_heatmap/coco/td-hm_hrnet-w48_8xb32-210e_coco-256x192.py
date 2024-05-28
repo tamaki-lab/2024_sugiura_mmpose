@@ -1,7 +1,7 @@
 _base_ = ['../../../_base_/default_runtime.py']
 
 # runtime
-train_cfg = dict(max_epochs=5, val_interval=10)
+train_cfg = dict(max_epochs=3, val_interval=50)
 
 # optimizer
 optim_wrapper = dict(optimizer=dict(
@@ -135,10 +135,7 @@ val_dataloader = dict(
         data_root=data_root,
         data_mode=data_mode,
         ann_file='annotations/person_keypoints_val2017.json',
-        bbox_file='tests/data/coco/test_coco_det_AP_H_56.json'
-        # 'data/coco/person_detection_results/'
-        # 'COCO_val2017_detections_AP_H_56_person.json',
-        ,
+        bbox_file='data/coco/person_detection_results/COCO_val2017_detections_AP_H_56_person.json',
         data_prefix=dict(img='val2017/'),
         test_mode=True,
         pipeline=val_pipeline,
